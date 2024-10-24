@@ -34,3 +34,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore executables
+*.exe
+
+# Ignore dist folder
+main/app/dist/
+
+# Ignore node_modules
+main/app/node_modules/
+
+# Ignore specific files or folders
+Nexora/Nexora.exe
+main/app/dist/Nexora-win32-x64/Nexora.exe
+main/app/dist/win-unpacked/electron.exe
