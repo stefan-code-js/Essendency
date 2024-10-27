@@ -6,8 +6,8 @@ const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfa
 
 export const metadata = {
   title: {
-    default: 'Nexora',
-    template: '%s | Nexora',
+    default: 'IntelliSynapse',
+    template: '%s | IntelliSynapse',
   },
   description: 'Unleash your productivity with AI',
   icons: {
