@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+
 import { motion } from "framer-motion";
 import React from "react";
 import Image from "next/image";
@@ -21,8 +21,6 @@ import {
 } from "@tabler/icons-react";
 
 export default function Hero() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 1000);
@@ -126,7 +124,7 @@ export default function Hero() {
               href="mailto:badea.adrian.stefan1@gmail.com"
               className="text-white hover:underline"
             >
-              Ask us a question at intelli@email.com
+              Ask us a question at intelli@email
             </a>
           </div>
         <div className="relative overflow-hidden w-full max-w-md mx-auto mt-4">
@@ -153,7 +151,7 @@ export default function Hero() {
         variants={fadeInUp}
       >
         <div className="hidden md:flex w-full md:w-1/3 justify-center md:justify-start mb-8 md:mb-0">
-          <Image src={leftimage} alt="Left Image" width={500} height={500} className="rounded-full" />
+          {/* <Image src={leftimage} alt="Left Image" width={500} height={500} className="rounded-full" /> */}
         </div>
         <div className="md:w-1/2 flex flex-col items-end text-right">
           <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
