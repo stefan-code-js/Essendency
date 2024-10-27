@@ -30,7 +30,7 @@ export default function Hero() {
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 lg:p-6 bg-[#FFFFF0] bg-opacity-90 backdrop-filter backdrop-blur-lg">
         <Link href="/" style={{ fontFamily: 'Asset, serif' }} 
           className="font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-600">
-          IntelliSynapse
+          IntelliSynaps
         </Link>
         <div className="hidden md:flex space-x-6">
           {['Home', 'About'].map((item) => (
@@ -63,8 +63,8 @@ export default function Hero() {
       <div className="hero relative z-10 flex min-h-screen items-center justify-center px-5 lg:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
           <div className={`text-left transition-all duration-500 ease-in-out ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <h1 style={{ fontFamily: 'Asset, serif' }} className="font-asset text-4xl sm:text-5xl lg:text-7xl font-bold mb-3 text-gray-700">
-              IntelliSynapse
+            <h1 style={{ fontFamily: "Asset, serif" }} className="font-asset text-4xl sm:text-5xl lg:text-7xl font-bold mb-3 text-gray-700">
+              IntelliSynaps
             </h1>
             <Image className="heroimage" src={heroimage} alt="Hero Image" width={700} height={700} quality={100} />
             <p className="heroph text-lg sm:text-xl mb-6 lg:mb-8 text-gray-500">Discover what your brain can do</p>
