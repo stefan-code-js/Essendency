@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Asset';
+    src: url('Asset-Regular.woff2') format('woff2'),
+        url('Asset-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
