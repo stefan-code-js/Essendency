@@ -3,9 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import { motion } from "framer-motion";
 import React from "react";
 import Image from "next/image";
 import heroimage from "../public/media/heroimage.png";
+import signature from "../public/media/signature.png";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import leftimage from "../public/media/vecteezy_a-robot-head-with-a-face-and-a-mechanical-body-on_44803922.png";
 import {
   IconArrowWaveRightUp,
   IconBoxAlignTopLeft,
@@ -24,45 +29,35 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  return (
-    <section className="relative min-h-screen overflow-hidden bg-[#FFFFF0]">
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 lg:p-6 bg-[#FFFFF0] bg-opacity-90 backdrop-filter backdrop-blur-lg">
-        <Link href="/" style={{ fontFamily: 'Asset, serif' }} 
-          className="font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-600">
-          IntelliSynaps
-        </Link>
-        <div className="hidden md:flex space-x-6">
-          {['Home', 'About'].map((item) => (
-            <Link key={item} href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} className="text-gray-700">
-              {item}
-            </Link>
-          ))}
-        </div>
-        <button
-          className="md:hidden text-gray-700"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          <Menu size={24} />
-        </button>
-      </nav>
+  // Animation settings for sections
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-[#FFFFF0] bg-opacity-90 backdrop-filter backdrop-blur-lg z-40 md:hidden">
-          {['Home', 'About'].map((item) => (
-            <Link key={item} href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} className="block py-2 px-4 text-gray-700">
-              {item}
-            </Link>
-          ))}
-        </div>
-      )}
+  return (
+    <motion.section
+      className="relative min-h-screen overflow-hidden bg-[#FFFFF0]"
+      initial="hidden"
+      animate="visible"
+      variants={fadeInUp}
+    >
+      <Navbar />
 
       {/* Hero Content */}
-      <div className="hero relative z-10 flex min-h-screen items-center justify-center px-5 lg:px-6">
+      <motion.div
+        className="hero relative z-10 flex min-h-screen items-center justify-center px-5 lg:px-6"
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
-          <div className={`text-left transition-all duration-500 ease-in-out ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+          <motion.div
+            className={`text-left transition-all duration-500 ease-in-out ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+          >
             <h1 style={{ fontFamily: "Asset, serif" }} className="font-asset text-4xl sm:text-5xl lg:text-7xl font-bold mb-3 text-gray-700">
               IntelliSynaps
             </h1>
@@ -74,12 +69,28 @@ export default function Hero() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
-          </div>
+          </motion.div>
         </div>
-      </div>
-      <p className="font-asset text-lg sm:text-xl mb--2 mt--2 lg:mb-6 items-center flex justify-center bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-600">Key features of the app </p>
+      </motion.div>
+
+      {/* Key Features Text */}
+      <motion.p
+        className="font-asset text-lg sm:text-xl mb--2 mt--2 lg:mb-6 items-center flex justify-center bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-600"
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+      >
+        Key features of the app
+      </motion.p>
+
       {/* Glass Card Grid */}
-      <div className="pt-8 px-4 page-padding flex justify-center">
+      <motion.div
+        className="pt-8 px-4 page-padding flex justify-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {items.map((item, i) => (
             <div key={i} className={`glass-card p-6 shadow-lg rounded-lg overflow-hidden ${item.className}`}>
@@ -87,69 +98,80 @@ export default function Hero() {
               <div className="p-4">
                 <div className="flex items-center mb-2">
                   {item.icon}
-                  <h3 className="ml-2 text-lg font-semibold">{item.title}</h3>
+                  <h3 className="ml-2 text-lg font-semibold text-white">{item.title}</h3>
                 </div>
-                <p className="text-gray-700">{item.description}</p>
-                {item.action && <div className="mt-4">{item.action}</div>}
+                <p className="text-gray-300">{item.description}</p>
+                {item.action && (
+                  <div className="mt-4">
+                    {item.action}
+                  </div>
+                )}
               </div>
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Question Section */}
-      <div className="flex flex-col items-center text-center mt-20 py-12 bg-[#FFFFF0]">
-        <h2 className="text-3xl font-bold mb-4">Do you have an unanswered question?</h2>
-        <div className="bg-black text-white py-3 px-6 rounded-full mb-6">
-          <span>Ask us a question at lorem@ipsum.com</span>
-        </div>
-        <div className="flex space-x-4">
-          {["Explore", "Discover", "Connect", "Learn","Connect", "Learn","Connect", "Learn","Learn","Connect", "Learn", "Discover", "Discover"].map((word, index) => (
-            <button
-              key={index}
-              disabled
-              className="bg-black text-white py-2 px-4 rounded-full opacity-80 cursor-not-allowed"
+      <motion.div
+        className="flex flex-col items-center text-center mt-20 py-12 bg-[#FFFFF0]"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        <h2 className="text-2xl sm:text-3xl font-bold mb-4 px-4">Do you have an unanswered question?</h2>
+          <div className="bg-black text-white py-2 px-4 rounded-full mb-4 text-sm sm:text-base">
+            <a
+              href="mailto:badea.adrian.stefan1@gmail.com"
+              className="text-white hover:underline"
             >
-              {word}
-            </button>
-          ))}
+              Ask us a question at intelli@email.com
+            </a>
+          </div>
+        <div className="relative overflow-hidden w-full max-w-md mx-auto mt-4">
+          <div className="flex space-x-4 animate-scroll">
+            {["Explore", "Discover", "Connect", "Learn", "Connect", "Learn", "Explore"].map((word, index) => (
+              <button
+                key={index}
+                disabled
+                className="bg-black text-white py-2 px-4 rounded-full opacity-80 cursor-not-allowed whitespace-nowrap"
+              >
+                {word}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
-       {/* Thank You Section */}
-       <div className="flex flex-col md:flex-row items-center justify-between mt-20 text-right py-16 px-8 bg-[#FFFFF0] text-black-600">
-        {/* Left Image */}
-        <div className="w-full md:w-1/3 flex justify-center md:justify-start mb-8 md:mb-0">
-          <Image
-            src="/path-to-your-left-image.jpg" // Replace this with your actual path to the left-side image
-            alt="Left Image"
-            width={200}
-            height={200}
-            className="rounded-full"
-          />
-        </div>
+      </motion.div>
 
-        {/* Text Content */}
+      {/* Thank You Section */}
+      <motion.div
+        className="flex flex-col md:flex-row items-center justify-between mt-20 text-right py-16 px-8 bg-[#FFFFF0] text-black-600"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        <div className="hidden md:flex w-full md:w-1/3 justify-center md:justify-start mb-8 md:mb-0">
+          <Image src={leftimage} alt="Left Image" width={500} height={500} className="rounded-full" />
+        </div>
         <div className="md:w-1/2 flex flex-col items-end text-right">
-          <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Thank you for scrolling</h2>
+          <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+            Thank you for scrolling
+          </h2>
           <p className="mb-4 text-lg">
             In conclusion, this project has been a journey of innovation and creativity, where every design decision was carefully crafted to enhance the user experience.
           </p>
           <p className="text-lg">
             Let's embrace the future of design, where possibilities are limitless and creativity knows no bounds. Thank you.
           </p>
-
-          {/* Signature Image */}
           <div className="mt-8">
-            <Image
-              src="/path-to-your-signature-image.jpg" // Replace this with your actual path to the signature image
-              alt="Signature"
-              width={150}
-              height={50}
-            />
+            <Image src={signature} alt="Signature" width={200} height={100} />
           </div>
         </div>
-      </div>
-    </section>
+      </motion.div>
+      <Footer />
+    </motion.section>
   );
 }
 
