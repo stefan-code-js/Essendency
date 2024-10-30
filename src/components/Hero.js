@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-// import heroimage from "../public/media/heroimage.png";
+// import heroimage from "../public/media/hero.png";
 import signature from "../public/media/signature.png";
 // import leftimage from "../public/media/vecteezy_a-robot-head-with-a-face-and-a-mechanical-body-on_44803922.png";
 import {
@@ -65,10 +65,10 @@ export default function Hero() {
             <h1 style={{ fontFamily: "Asset, serif" }} className="font-asset text-4xl sm:text-5xl lg:text-7xl font-bold mb-3 text-gray-700">
               IntelliSynaps
             </h1>
-            {/* <Image className="heroimage" src={heroimage} alt="Hero Image" width={700} height={700} quality={100} /> */}
+            {/* <Image className="heroimage" src={heroimage} alt="Hero Image" width={300} height={300} quality={100} /> */}
             <Link
                 href="#"
-                className="inline-flex items-center px-6 py-3 text-lg font-semibold text-white bg-red-600 rounded-full hover:bg-red-700 transition duration-300"
+                className="inline-flex center items-center px-6 py-3 text-lg font-semibold text-white bg-red-600 rounded-full hover:bg-red-700 transition duration-300"
                 onClick={handleScroll}
               >
                 Get Started

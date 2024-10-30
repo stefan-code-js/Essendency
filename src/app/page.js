@@ -16,9 +16,6 @@ export const metadata = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background-start to-background-end text-gray-900">
-      {/* Navbar */}
-      <Navbar />
-
       {/* Main content */}
       <main>
         <Hero />
