@@ -1,16 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import Link from "next/link";
-
 import { motion } from "framer-motion";
-import React from "react";
 import Image from "next/image";
-import heroimage from "../public/media/heroimage.png";
-import signature from "../public/media/signature.png";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import leftimage from "../public/media/vecteezy_a-robot-head-with-a-face-and-a-mechanical-body-on_44803922.png";
+// import heroimage from "../public/media/heroimage.png";
+import signature from "../public/media/signature.png";
+// import leftimage from "../public/media/vecteezy_a-robot-head-with-a-face-and-a-mechanical-body-on_44803922.png";
 import {
   IconArrowWaveRightUp,
   IconBoxAlignTopLeft,
@@ -20,8 +18,16 @@ import {
   IconClipboardCopy,
 } from "@tabler/icons-react";
 
-export default function Hero() {
 
+export default function Hero() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const gridSectionRef = useRef(null);
+  const handleScroll = (e) => {
+    e.preventDefault();
+    if (gridSectionRef.current) {
+      gridSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 1000);
     return () => clearTimeout(timer);
@@ -59,31 +65,41 @@ export default function Hero() {
             <h1 style={{ fontFamily: "Asset, serif" }} className="font-asset text-4xl sm:text-5xl lg:text-7xl font-bold mb-3 text-gray-700">
               IntelliSynaps
             </h1>
-            <Image className="heroimage" src={heroimage} alt="Hero Image" width={700} height={700} quality={100} />
-            <p className="heroph text-lg sm:text-xl mb-6 lg:mb-8 text-gray-500">Discover what your brain can do</p>
-            <Link href="/about" className="inline-flex items-center px-6 py-3 text-lg font-semibold text-white bg-red-600 rounded-full hover:bg-red-700 transition duration-300">
-              Get Started
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
+            {/* <Image className="heroimage" src={heroimage} alt="Hero Image" width={700} height={700} quality={100} /> */}
+            <Link
+                href="#"
+                className="inline-flex items-center px-6 py-3 text-lg font-semibold text-white bg-red-600 rounded-full hover:bg-red-700 transition duration-300"
+                onClick={handleScroll}
+              >
+                Get Started
+                <svg
+                  className="w-5 h-5 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
           </motion.div>
         </div>
       </motion.div>
 
       {/* Key Features Text */}
-      <motion.p
+      {/* <motion.p
         className="font-asset text-lg sm:text-xl mb--2 mt--2 lg:mb-6 items-center flex justify-center bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-600"
         initial="hidden"
         animate="visible"
         variants={fadeInUp}
       >
         Key features of the app
-      </motion.p>
+      </motion.p> */}
 
       {/* Glass Card Grid */}
       <motion.div
-        className="pt-8 px-4 page-padding flex justify-center"
+        ref={gridSectionRef} 
+        className="pt-3 px-4 page-padding flex justify-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
