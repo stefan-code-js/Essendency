@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-// import heroimage from "../public/media/hero.png";
+// import heroimage from "../public/media/herowebpd.webp";
 import signature from "../public/media/signature.png";
 // import leftimage from "../public/media/vecteezy_a-robot-head-with-a-face-and-a-mechanical-body-on_44803922.png";
 import {
@@ -63,9 +63,9 @@ export default function Hero() {
             variants={fadeInUp}
           >
             <h1 style={{ fontFamily: "Asset, serif" }} className="font-asset text-4xl sm:text-5xl lg:text-7xl font-bold mb-3 text-gray-700">
-              IntelliSynaps
+              Essendency
             </h1>
-            {/* <Image className="heroimage" src={heroimage} alt="Hero Image" width={300} height={300} quality={100} /> */}
+            {/* <Image className="heroimage" src={heroimage} alt="Hero Image" width={500} height={400} quality={100} /> */}
             <Link
                 href="#"
                 className="inline-flex center items-center px-6 py-3 text-lg font-semibold text-white bg-red-600 rounded-full hover:bg-red-700 transition duration-300"
@@ -86,15 +86,6 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* Key Features Text */}
-      {/* <motion.p
-        className="font-asset text-lg sm:text-xl mb--2 mt--2 lg:mb-6 items-center flex justify-center bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-600"
-        initial="hidden"
-        animate="visible"
-        variants={fadeInUp}
-      >
-        Key features of the app
-      </motion.p> */}
 
       {/* Glass Card Grid */}
       <motion.div
@@ -135,7 +126,7 @@ export default function Hero() {
         variants={fadeInUp}
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-4 px-4">Do you have an unanswered question?</h2>
-          <div className="bg-black text-white py-2 px-4 rounded-full mb-4 text-sm sm:text-base">
+          <div className="bg-[#889bae] text-white py-2 px-4 rounded-full mb-4 text-sm sm:text-base">
             <a
               href="mailto:badea.adrian.stefan1@gmail.com"
               className="text-white hover:underline"
@@ -145,11 +136,11 @@ export default function Hero() {
           </div>
         <div className="relative overflow-hidden w-full max-w-md mx-auto mt-4">
           <div className="flex space-x-4 animate-scroll">
-            {["Explore", "Discover", "Connect", "Learn", "Connect", "Learn", "Explore"].map((word, index) => (
+            {["Gastronomy", "Discover", "Chemistry", "Health", "Science", "Technology", "Culture"].map((word, index) => (
               <button
                 key={index}
                 disabled
-                className="bg-black text-white py-2 px-4 rounded-full opacity-80 cursor-not-allowed whitespace-nowrap"
+                className="bg-[#A9C6E2] text-white py-2 px-4 rounded-full opacity-80 cursor-not-allowed whitespace-nowrap"
               >
                 {word}
               </button>

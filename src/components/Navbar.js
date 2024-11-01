@@ -18,7 +18,7 @@ export default function Navbar() {
         style={{ fontFamily: "Asset, serif" }}
         className="font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-600"
       >
-        IntelliSynapse
+        Essendency
       </Link>
 
       {/* Desktop Menu */}
