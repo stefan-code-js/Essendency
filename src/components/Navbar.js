@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import Link  from "next/link";
 import { Menu, X } from "lucide-react";
-
+import logo from "../public/media/logo.png";
+import Image from "next/image";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,9 +17,9 @@ export default function Navbar() {
       <Link
         href="/"
         style={{ fontFamily: "Asset, serif" }}
-        className="font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-600"
+        className="logo font-bold  bg-clip-text text-transparent"
       >
-        Essendency
+        <Image src={logo} alt="Logo" width={50} height={50} />
       </Link>
 
       {/* Desktop Menu */}

@@ -7,7 +7,7 @@ import { Instagram, Linkedin, Github } from "lucide-react"; // Assuming you're u
 
 const Footer = () => {
   return (
-    <footer className="bg-[#FFFFF0] text-center py-8 px-4 mt-16 text-gray-700">
+    <footer className="bg-[#DBF4AD] text-center py-8 px-4 mt-16 text-gray-700">
       <div className="flex justify-center space-x-6 mb-4">
         {/* Instagram */}
         <motion.div

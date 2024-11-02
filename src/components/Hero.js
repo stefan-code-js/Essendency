@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import HexagonGrid from "./HexagonalGrid";
 // import heroimage from "../public/media/herowebpd.webp";
 import signature from "../public/media/signature.png";
 // import leftimage from "../public/media/vecteezy_a-robot-head-with-a-face-and-a-mechanical-body-on_44803922.png";
@@ -28,6 +29,11 @@ export default function Hero() {
       gridSectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const words = [
+    "ESSENDENCY",
+    "FLAVORS", 
+    "SCIENCE"];
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 1000);
     return () => clearTimeout(timer);
@@ -41,7 +47,7 @@ export default function Hero() {
 
   return (
     <motion.section
-      className="relative min-h-screen overflow-hidden bg-[#FFFFF0]"
+      className="relative min-h-screen overflow-hidden bg-[#DBF4AD]"
       initial="hidden"
       animate="visible"
       variants={fadeInUp}
@@ -49,7 +55,7 @@ export default function Hero() {
       <Navbar />
 
       {/* Hero Content */}
-      <motion.div
+      {/* <motion.div
         className="hero relative z-10 flex min-h-screen items-center justify-center px-5 lg:px-6"
         initial="hidden"
         animate="visible"
@@ -62,13 +68,13 @@ export default function Hero() {
             animate="visible"
             variants={fadeInUp}
           >
-            <h1 style={{ fontFamily: "Asset, serif" }} className="font-asset text-4xl sm:text-5xl lg:text-7xl font-bold mb-3 text-gray-700">
+            <h1 style={{ fontFamily: "Inter, serif" }} className="font-asset text-4xl sm:text-5xl lg:text-7xl font-bold mb-3 ">
               Essendency
             </h1>
             {/* <Image className="heroimage" src={heroimage} alt="Hero Image" width={500} height={400} quality={100} /> */}
-            <Link
+            {/* <Link
                 href="#"
-                className="inline-flex center items-center px-6 py-3 text-lg font-semibold text-white bg-red-600 rounded-full hover:bg-red-700 transition duration-300"
+                className="button inline-flex center items-center px-6 py-3 text-lg font-semibold text-white rounded-full  transition duration-300"
                 onClick={handleScroll}
               >
                 Get Started
@@ -84,8 +90,11 @@ export default function Hero() {
               </Link>
           </motion.div>
         </div>
-      </motion.div>
+      </motion.div> */} */
 
+ <div>
+  <HexagonGrid words={words} />
+ </div>
 
       {/* Glass Card Grid */}
       <motion.div
@@ -103,7 +112,7 @@ export default function Hero() {
               <div className="p-4">
                 <div className="flex items-center mb-2">
                   {item.icon}
-                  <h3 className="ml-2 text-lg font-semibold text-white">{item.title}</h3>
+                  <h3 className="title ml-2 text-lg font-semibold">{item.title}</h3>
                 </div>
                 <p className="text-gray-300">{item.description}</p>
                 {item.action && (
@@ -119,7 +128,7 @@ export default function Hero() {
 
       {/* Question Section */}
       <motion.div
-        className="flex flex-col items-center text-center mt-20 py-12 bg-[#FFFFF0]"
+        className="flex flex-col items-center text-center mt-20 py-12 bg-[#DBF4AD]"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -151,7 +160,7 @@ export default function Hero() {
 
       {/* Thank You Section */}
       <motion.div
-        className="flex flex-col md:flex-row items-center justify-between mt-20 text-right py-16 px-8 bg-[#FFFFF0] text-black-600"
+        className="flex flex-col md:flex-row items-center justify-between mt-20 text-right py-16 px-8 bg-[#DBF4AD] text-black-600"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
